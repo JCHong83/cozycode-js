@@ -77,3 +77,93 @@ CozyCode Project (version 2)
    3. fetch products from '/api/products' in render()
    4. make router() async and call await HomeScreen.render()
    5. use cors on backend
+
+8. Add Webpack
+
+   1. cd frontend
+   2. npm install -D webpack webpack-cli webpack-devserver
+   3. npm uninstall live-server
+   4. "start": "webpack-dev-server --mode development --watch-content-base --open" \* beware that this method works on Webpack 4, current version of Weback is 5
+   5. move index.html, style.css and images to frontend folder
+   6. rename app.js to index.js
+   7. update index.html
+   8. add script main.js before body tag
+   9. npm start
+   10. npm install axios
+   11. change fetch to axios in HomeScreen
+
+9. Install Babel for ES6 Syntax
+
+   1. npm install -D babel core, cli, node, preset-env
+   2. Create .babelrc and set presets to @babel/preset-env
+   3. npm install -D nodemon
+   4. set start: nodemon --watch backend --exec babel-node backend/server.js
+   5. convert require to import in server.js
+   6. npm start
+
+10. Enable Code Linting
+
+    1. npm install -D eslint
+    2. install VSCode eslint extension
+    3. create .eslintrc and set module exports for env to node
+    4. set VSCode setting for editor.code ActionsOnSave source.fix All.eslint to tue
+    5. check results for linting error
+    6. npm install esllint-config-airbnb-base and eslint-plugin-import
+    7. set extends to airbnb-base
+    8. set parserOptions to ecmaVersion 11 and sourceType to module
+    9. set rules for no--console to 0 to ignore linting error
+
+11. Install VSCode Extensionn
+
+    1. JavaScript (ES6) code snippets
+    2. ES7 React/Redux/GraphQL/React-Native snippets
+    3. Prettier - Code formatter
+    4. HTML&LESS grammar injections
+
+12. Create Rating Component
+
+    1. create components/Ratings.js
+    2. link to fontawesome.css in index.html
+    3. create div.rating
+    4. define Rating object with render()
+    5. if !props.value return empty div
+    6. else use fa fa-star, fa-star-half-o and fa-star-o
+    7. last span for props.text || "
+    8. style div.rating, span and last span
+    9. edit Homescreen
+    10. Add div.product-rating and use Rating component
+
+13. Product Screen
+
+    1. get product id from request
+    2. implement /api/product/:id api
+    3. send Ajax request to product api
+
+14. Product Screen UI
+
+    1. create back to result link
+    2. create div.details with 3 columns
+    3. column 1 for product image
+    4. column 2 for product information
+    5. column 3 for form product action
+    6. style .details and all columns
+    7. create add to cart button with add-button id
+
+15. Product Screen ASction
+
+    1. after_render() to add event to the button
+    2. add event handler for the button
+    3. redirect user to cart/:product_id
+    4. implement after_render in index.js
+
+16. Add to Cart Action
+
+    1. create CartScreen.js
+    2. parseRequestUrl
+    3. getProduct(request.id)
+    4. addToCart
+    5. getCartItems
+    6. cartitems.find
+    7. if existItem update qty
+    8. else add item
+    9. setCartItems
