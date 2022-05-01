@@ -167,3 +167,171 @@ CozyCode Project (version 2)
     7. if existItem update qty
     8. else add item
     9. setCartItems
+
+17. Cart Screen UI
+
+    1. cartItems = getCartItems()
+    2. create 2 columns for cart items and cart action
+    3. cartItems.lenght === 0 ? cart is empty
+    4. show item image, name, qty and price
+    5. cart action
+    6. Subtotal
+    7. Proceed to Checkout button
+    8. Add CSS Style
+
+18. Update and Delete Cart Items
+
+    1. add qty select next to each item
+    2. after_render()
+    3. add chenge event to qty select
+    4. getCartItems() and pass to addToCart()
+    5. set force to true to addToCart()
+    6. create rerender() as (component, areaName = 'content')
+    7. component.render and component.after_render
+    8. if force is true then rerender()
+    9. add delete button next to each item
+    10. add click event to qty button
+    11. call removeFromCart(deleteButton.id)
+    12. implement removeFromCart(id)
+    13. setCartItems(getCartItems().filter)
+    14. if id === parseRequestUrl().id? redirect to '/cart'
+    15. else rerender(CartScreen);
+
+19. Connect To MongoDB and create Admin User
+
+    1. npm install mongoose
+    2. connect to mongodb
+    3. create config.js
+    4. npm install dotenv
+    5. export MONGODB_URL
+    6. create models/userModel.js
+    7. create userSchema and userModel
+    8. create userRoute
+    9. create createadmin route
+
+20. Sign-in Screen UI
+
+    1. create SignInScreen
+    2. render email and password fields
+    3. style signin form
+
+21. Sign-in Screen Backend
+
+    1. create signin api in backend
+    2. create route for /api/users/signin
+    3. create check user name and password
+    4. if it is not ok then return 401 error
+    5. install express-async-handler
+    6. wrap it in expressAsyncHandler
+    7. add error middleware in server.js
+    8. install Postman
+    9. send post request
+    10. test with invalid user password
+    11. otherwise generate token
+    12. install jsonwebtoken
+    13. set config.JWT_SECRET to somethingsecret
+    14. add generateToken to utils.js
+    15. return token
+    16. test with correct user and password
+
+22. Sign-in Screen Action
+
+    1. after_rener handle form submit
+    2. create signin request in frontend
+    3. show alert if email or password is incorrect
+    4. add getUserInfo and setUserInfo to localStorage
+    5. create Header component
+    6. if userInfo.email exist show user name otherwise show signin
+
+23. Create Progress Indicator and Alert Component
+
+    1. create overlay loading div in index.html
+    2. style overlay loading
+    3. create showLoading() function
+    4. set loading-overlay classList add active
+    5. create hideLoading() function
+    6. create overlay message div in index.html
+    7. add style overlay message
+    8. create showMessage(message, callback)
+    9. document message-overlay set inner HTML
+    10. div > div id message-overlay-content
+    11. show message
+    12. button id message-overlay-close-button OK
+    13. add class active to it
+    14. add event listener for button ro call callback
+
+24. Register Screen
+
+    1. create RegisterScreen.js
+    2. add form elements
+    3. after_render handle form submit
+    4. create register request in frontend
+    5. create register api in backend
+
+25. User Profile Screen
+
+    1. create ProfileScreen.js
+    2. add form elements
+    3. after_rener handle form submit
+    4. create profile update request in frontend
+    5. create profile update api in backend
+    6. create isAuth in utils.js and use in update profile
+    7. implement sign out
+
+26. Checkout Wizard
+
+    1. create CheckoutSteps.js
+    2. create div elements for step 1 to 4
+    3. create redirectUser() in utils.js
+    4. copy profile screen and rename as shipping screen
+    5. use CheckoutStep
+    6. define getShipping and set Shipping
+    7. copy shipping screen and rename as payment screen
+    8. define getPayment and setPayment
+    9. redirect user to PlaceOrder.js
+
+27. PlaceOrder Screen UI
+
+    1. create PlaceOrder.js
+    2. style elements
+
+28. PlaceOrder Screen Action
+
+    1. handle place order button click
+    2. createOrder api
+    3. create orderModel
+    4. create orderRouter
+    5. create post order route
+
+29. Order Screen
+
+    1. create OrderScreen.js
+    2. style elements
+
+30. PayPal Payment
+
+    1. get client id from paypal
+    2. set it in .env file
+    3. create route form /api/paypal/clientId
+    4. create getPaypalClientID in api.js
+    5. add paypal checkout script in OrderScreen.js
+    6. show paypal button
+    7. update order after payment
+    8. create payOrder in api.js
+    9. create route for /:id/pay in orderRouter.js
+    10. rerender after pay order
+
+31. Display Orders History
+
+    1. create customer orders api
+    2. create api for getMyOrders
+    3. show orders in profile screen
+    4. style orders
+
+32. Admin Dashboard UI
+
+    1. Header.js
+    2. if user is admin show Dashboard
+    3. create DashboardScreen
+    4. create DashboardMenu
+    5. style dashboard
