@@ -335,3 +335,144 @@ CozyCode Project (version 2)
     3. create DashboardScreen
     4. create DashboardMenu
     5. style dashboard
+
+33. Admin Products UI
+
+    1. create ProductListScreen.js
+    2. show products with edit and delete button
+    3. show create product button
+
+34. Create Product
+
+    1. create product model
+    2. implement create product route
+    3. create product function in api.js
+    4. call create product function in ProductListScreen
+    5. redirect to edit product
+
+35. Edit Product UI
+
+    1. create ProductEditScreen.js
+    2. load product data from backend
+    3. handle form submit
+    4. save product in backend
+
+36. Edit Product Backend
+
+    1. handle form submit
+    2. create updateProduct
+    3. save product in backend
+
+37. Upload Product Image
+
+    1. npm install multer
+    2. create routes/uploadRoute.js
+    3. import express and multer
+    4. create disk storage with Date.now().jpg as filename
+    5. set upload as multer({storage})
+    6. router.post('/', upload.single('image'))
+    7. return req.file.path
+    8. app.use('/api/uploads', uploadRoute) in server.js
+    9. create uploads folder and put empty file.txt there.
+    10. ProductEditScreen.js
+    11. create file input and set id to image-file
+    12. after_render() handle image-file change
+    13. create form data
+    14. call uploadProductImage()
+    15. create uploadProductImage in api.js
+    16. update server.js
+
+38. Build Project
+
+    1. create build script for frontend
+    2. create build script for backend
+    3. update server.js to serve frontend build folder and uploads folder
+    4. stop running frontend
+    5. npm run build
+    6. check localhost:5000 for running website and showing images
+
+39. Delete Product
+
+    1. update ProductListScreen.js
+    2. handle delete button
+    3. rerender after deletion
+
+40. Admin Orders
+
+    1. create Admin Order menu in header
+    2. create AdminOrder.js
+    3. load orders from backend
+    4. list them in the screen
+    5. show delete and edit button
+    6. redirect to order details on edit action
+
+41. Deliver Order
+
+    1. if order is payed show deliver button for admin
+    2. handle click on deliver button
+    3. set state to delivered
+
+42. Show Summary Report in Dashboard
+
+    1. create summary section'
+    2. style summary
+    3. create summary backend
+    4. create getSummary in api.js
+    5. load data in dashboard screen
+    6. show 3 boxes for Users, Orders and Sales
+
+43. Show Chart in Dashboard
+
+    1. import chartist
+    2. add chartist css to index.html
+    3. create linear chart for daily sales
+    4. create pie chart for product categories
+
+44. Publish Heroku
+
+    1. create git repository
+    2. create heroku account
+    3. install Heroku CLI
+    4. heroku login
+    5. heroku apps:create CozyCode
+    6. edit package.json for heroku-prebuild
+    7. edit package.json for heroku-postbuild
+    8. edit package.json for node engines
+    9. create Procfile
+    10. edit server.js for PORT
+    11. create mongoDB atlas database
+    12. create mongoDB account
+    13. open cloud.mongodb.com
+    14. add new user and save username and password
+    15. set Network Access to accept all requests
+    16. create new database
+    17. create connection string based on db name and user and password
+    18. set Cloud MongoDB connection in heroku env variables
+    19. commit and push
+
+45. Product Search Bar
+
+    1. create search bar in Header.js
+    2. add style
+    3. handle submit form
+    4. edit parse url to get query string
+    5. update product list api for search keyword
+
+46. Show Categories in Sidebar Menu
+
+    1. create aside-open-button in Header.js
+    2. add event to open aside
+    3. create Aside.js component
+    4. Add style aside
+    5. after render close it on click on close button
+    6. use it in index.html
+    7. update index.js to render aside 9
+    8. call getCategories
+    9. create getCategories in api.js
+
+47. Review Products
+
+    1. create review model
+    2. create review form
+    3. create review api
+    4. style review form
