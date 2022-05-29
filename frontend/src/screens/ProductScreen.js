@@ -3,6 +3,12 @@ import { parseRequestUrl } from '../utils';
 import rating from '../components/rating';
 
 const ProductScreen = {
+  after_render: () => {
+    const request = parseRequestUrl();
+    document.getElementById('add-button').addEventListener('click', () => {
+      document.location.hash = `/cart/${request.id}`;
+    });
+  },
   render: async () => {
     const request = parseRequestUrl();
     const product = await getProduct(request.id);
@@ -40,7 +46,7 @@ const ProductScreen = {
             </li>
           </ul>
         </div>
-        <div class="details-acton">
+        <div class="details-action">
           <ul>
             <li>
               Price: ${product.price}
@@ -54,7 +60,7 @@ const ProductScreen = {
                 }
             </li>
             <li>
-                <button id="add-button" class="primary">Add to Cart</button>
+                <button id="add-button" class="fw primary">Add to Cart</button>
             </li>
           </ul>
         </div>
